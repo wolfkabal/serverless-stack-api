@@ -1,18 +1,17 @@
 Resources:
   NotesTable:
-    Type: AWS::DynamoDB::NotesTable
+    Type: AWS::DynamoDB::Table
     Properties:
       TableName: ${self:custom.tableName}
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
-        - AttributeName: NoteId
+        - AttributeName: noteId
           AttributeType: S
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
-        - AttributeName: NoteId
+        - AttributeName: noteId
           KeyType: RANGE
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
-          
